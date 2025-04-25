@@ -53,6 +53,7 @@ export const NavbarSidebar = ({ items, open, onOpenChange }: Props) => {
             >
               Start selling
             </Link>
+          </div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
