@@ -5,6 +5,13 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Displays a horizontal progress bar with customizable styling and progress value.
+ *
+ * Renders a styled progress indicator that visually represents the completion percentage based on the {@link value} prop.
+ *
+ * @param value - The current progress percentage (0–100). If omitted or falsy, the progress defaults to 0%.
+ */
 function Progress({
   className,
   value,
