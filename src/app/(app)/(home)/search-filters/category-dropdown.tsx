@@ -4,12 +4,12 @@ import { useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Category } from "@/payload-types";
+import { CustomCategory } from "../types";
 import { SubcategoryMenu } from "./subcategory-menu";
 import { useDropdownPosition } from "./use-dropdown-position";
 
 interface CategoryDropdownProps {
-  category: Category;
+  category: CustomCategory;
   isActive?: boolean;
   isNavigationHover?: boolean;
 }
@@ -31,6 +31,12 @@ export const CategoryDropdown = ({
     setIsOpen(false);
   }
 
+  const toggleDropdown = () => {
+    if (category.subcategories.docs?.length) {
+      setIsOpen(!isOpen)
+    }
+  }
+
   const dropdownPosition = getDropdownPosition();
 
   return (
@@ -45,7 +51,8 @@ export const CategoryDropdown = ({
           variant="elevated"
           className={cn(
             "h-11 px-4 bg-transparent border-transparent rounded-full hover:bg-white hover:border-primary text-black",
-            isActive && !isNavigationHover && "bg-white border-primary"
+            isActive && !isNavigationHover && "bg-white border-primary",
+            isOpen && "bg-white border-primary shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-x-[4px] -translate-y-[4px]"
           )}
         >
           {category.name}
