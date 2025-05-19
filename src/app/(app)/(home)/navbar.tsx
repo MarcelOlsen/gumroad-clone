@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Poppins } from "next/font/google";
 import Link from "next/link";
@@ -24,16 +24,14 @@ const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
       variant="outline"
       className={cn(
         "bg-transparent hover:bg-transparent rounded-full hover:border-primary border-transparent px-3.5 text-lg",
-        isActive && "bg-black text-white hover:bg-black hover:text-white"
+        isActive && "bg-black text-white hover:bg-black hover:text-white",
       )}
       asChild
     >
-      <Link href={href}>
-        {children}
-      </Link>
+      <Link href={href}>{children}</Link>
     </Button>
-  )
-}
+  );
+};
 
 const navbarItems = [
   {
@@ -59,18 +57,15 @@ const navbarItems = [
 ];
 
 export const Navbar = () => {
-  const pathname = usePathname()
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
+  const pathname = usePathname();
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   return (
     <nav className="h-20 flex border-b justify-between font-medium bg-white">
       <Link href="/" className="pl-6 flex items-center">
-        <span className={
-          cn(
-            "text-5xl font-semibold",
-            poppins.className
-          )
-        }>gumroad</span>
+        <span className={cn("text-5xl font-semibold", poppins.className)}>
+          gumroad
+        </span>
       </Link>
 
       <NavbarSidebar
@@ -97,7 +92,7 @@ export const Navbar = () => {
           className="border-l border-t-0 border-b-0 border-r-0 px-12 h-full rounded-none bg-white hover:bg-pink-400 transition-colors text-lg"
           asChild
         >
-          <Link href="/sign-in">
+          <Link prefetch href="/sign-in">
             Log in
           </Link>
         </Button>
@@ -106,7 +101,7 @@ export const Navbar = () => {
           className="border-l border-t-0 border-b-0 border-r-0 px-12 h-full rounded-none bg-black text-white hover:text-black hover:bg-pink-400 transition-colors text-lg"
           asChild
         >
-          <Link href="/sign-up">
+          <Link prefetch href="/sign-up">
             Start selling
           </Link>
         </Button>
@@ -122,5 +117,5 @@ export const Navbar = () => {
         </Button>
       </div>
     </nav>
-  )
-}
+  );
+};
